@@ -2,6 +2,9 @@
 
 This project marks the end of my sanity.
 
+https://github.com/Failedex/ManiaOnEww/assets/92513573/4f6177e0-e5fa-4c19-aa54-453eb2aa0dc4
+
+
 ## Dependencies 
 Currently runs on wayland
 - eww (obviously)
