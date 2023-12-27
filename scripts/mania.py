@@ -67,7 +67,7 @@ class Lane:
         if t <= lwindow:
             combo += 1
             self.q.popleft()
-            return "Late"
+            return "Ok"
         if t <= bwindow:
             combo = 0 
             self.q.popleft()
@@ -99,8 +99,7 @@ def readinput(l):
 
 def track():
     # timing is the bane of my existence
-    # time.sleep(mid-0.51)
-    time.sleep(mid-0.2)
+    time.sleep(mid-0.51)
     subprocess.call(["play", "./beatmaps/paradise/audio.mp3"], stdout=subprocess.DEVNULL)
 
 def chart(l): 

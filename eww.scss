@@ -10,6 +10,9 @@
 .board {
     background-color: $base;
     padding: 5px;
+    border-radius: 5px;
+    border: solid 2px; 
+    border-color: $surface2;
 }
 
 entry {
