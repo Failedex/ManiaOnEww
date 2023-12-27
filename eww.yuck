@@ -1,0 +1,74 @@
+(deflisten mjson 
+  :initial '{"combo": 0, "message": "", "lanes": [[], [], [], []]}'
+  "./scripts/mania.py")
+;; (defvar mjson '{"combo": 0, "message": "", "lanes": [[9, 90], [50], [], [88]]}')
+
+(defwindow mania 
+  :geometry (geometry
+             :x 0
+             :y 0
+             :width 400 
+             :height 900
+             :anchor "center"
+             )
+  :stacking "overlay"
+  :monitor 0
+  :focusable true
+  (board))
+
+(defwidget board []
+  (box 
+    :orientation "v"
+    :space-evenly false 
+    :class "board"
+    :vexpand true
+    (overlay
+      (box 
+        :orientation "h"
+        :space-evenly true
+        :height 800
+        :valign "start"
+        (for l in {mjson.lanes}
+          (box 
+            :orientation "v"
+            :space-evenly false
+            (for h in {l}
+              (scale 
+                :max 100 
+                :orientation "v"
+                :flipped true
+                :value h)
+              ))))
+        (box 
+          :orientation "h"
+          :space-evenly true 
+          :valign "end"
+          (for i in {[1, 2, 3, 4]}
+            (box 
+              :class "marker"
+              :height 80 
+              :width 80
+              :halign "center")
+            ))
+
+        (box 
+          :orientation "v"
+          (label 
+            :class "combo"
+            :text "${mjson.combo}")
+          (label
+            :class "mark"
+            :text "${mjson.message}")))
+    (box 
+      :orientation "h"
+      :space-evenly false 
+      :vexpand true
+      :valign "end"
+      (input 
+        :hexpand true
+        :onchange "echo '{}' > ./scripts/input.txt")
+      (button
+        :halign "end"
+        :onclick "${EWW_CMD} close mania"
+        "close"))
+    ))

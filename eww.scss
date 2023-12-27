@@ -1,0 +1,59 @@
+@import './colors.scss';
+
+* {
+    all: unset;
+    color: $white0; 
+    font-size: 15px;
+    font-family: "Iosevka Nerd Font";
+}
+
+.board {
+    background-color: $base;
+    padding: 5px;
+}
+
+entry {
+    padding: 5px; 
+    margin: 5px; 
+    border-radius: 5px;
+    border-style: solid;
+    border-color: $surface2;
+    background-color: $surface1; 
+    color: $white0;
+}
+
+scale {
+    all: unset; 
+    trough {
+        // I stacked the sliders lol
+        margin: 0px 0px -800px 0px;
+        min-width: 80px; 
+
+        slider {
+            border-radius: 50px;
+            min-height: 80px;
+            min-width: 80px;
+            background-color: $white0;
+        }
+    }
+}
+
+.marker {
+    border: solid 2px;
+    border-color: $white0;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    margin-top: -30px;
+}
+
+.mark {
+    font-size: 20px;
+    color: $white0; 
+    font-weight: bold;
+}
+
+.combo {
+    font-size: 30px;
+    color: $white0; 
+    font-weight: bold;
+}
